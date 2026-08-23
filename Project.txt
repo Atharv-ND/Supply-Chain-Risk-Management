@@ -1,0 +1,650 @@
+# Multi-Risk Supply Chain Intelligence System using Machine Learning & Explainable AI
+
+---
+
+# Project Documentation
+## Current Progress Summary (Version 1.0)
+
+---
+
+# 1. Project Overview
+
+## Project Title
+
+**Multi-Risk Supply Chain Intelligence System using Machine Learning and Explainable AI**
+
+---
+
+## Domain
+
+- Data Science
+- Machine Learning
+- Supply Chain Analytics
+- Explainable AI
+
+---
+
+## Project Type
+
+Research + Industrial Data Science Project
+
+---
+
+# 2. Project Idea
+
+The project aims to develop an intelligent supply chain risk prediction system by integrating multiple heterogeneous datasets representing different dimensions of supply chain operations.
+
+Unlike traditional approaches that only predict delivery delay or demand forecasting, this project incorporates external environmental, economic, political, infrastructure, disaster, transportation, and seasonal factors to generate a comprehensive shipment risk assessment.
+
+The system will also explain why a shipment is considered risky using Explainable AI techniques.
+
+---
+
+# 3. Problem Statement
+
+Modern supply chains are influenced by numerous interconnected factors including:
+
+- Weather
+- Government policies
+- Infrastructure quality
+- Inflation
+- Fuel prices
+- Natural disasters
+- Public holidays
+
+Most existing systems rely solely on internal shipment data and ignore these external influences.
+
+The objective of this project is to integrate these heterogeneous datasets into a unified machine learning framework capable of predicting shipment risk while providing explainable insights.
+
+---
+
+# 4. Proposed Solution
+
+Develop a unified AI-based Supply Chain Intelligence System capable of:
+
+- Integrating multiple global datasets
+- Predicting shipment risks
+- Explaining prediction decisions
+- Providing actionable recommendations
+
+The project focuses on building a multi-risk prediction framework rather than a single-task prediction model.
+
+---
+
+# 5. Research Gap Identified
+
+Existing research primarily focuses on:
+
+- Delivery delay prediction
+- Demand forecasting
+- Inventory optimization
+- Route optimization
+
+Common limitations include:
+
+- Dependence on only internal shipment data
+- Ignoring governance and political factors
+- Ignoring macroeconomic conditions
+- Ignoring disaster events
+- Lack of explainability
+
+Our project addresses these gaps through multi-source data fusion and explainable machine learning.
+
+---
+
+# 6. Proposed System Modules
+
+The project has been divided into the following modules.
+
+## Module 1
+
+Data Collection
+
+Status
+
+✅ Completed
+
+---
+
+## Module 2
+
+Data Cleaning
+
+Status
+
+Pending
+
+---
+
+## Module 3
+
+Data Integration
+
+Status
+
+Pending
+
+---
+
+## Module 4
+
+Feature Engineering
+
+Status
+
+Pending
+
+---
+
+## Module 5
+
+Exploratory Data Analysis
+
+Status
+
+Pending
+
+---
+
+## Module 6
+
+Machine Learning
+
+Status
+
+Pending
+
+---
+
+## Module 7
+
+Explainable AI
+
+Status
+
+Pending
+
+---
+
+## Module 8
+
+Risk Intelligence Engine
+
+Status
+
+Pending
+
+---
+
+## Module 9
+
+Dashboard
+
+Status
+
+Pending
+
+---
+
+# 7. Datasets Collected
+
+## Internal Dataset
+
+### DataCo Smart Supply Chain Dataset
+
+Purpose
+
+Acts as the primary operational dataset.
+
+Contains
+
+- Orders
+- Customers
+- Products
+- Shipping
+- Sales
+- Profit
+- Delivery Status
+
+Status
+
+✅ Collected
+
+---
+
+## External Datasets
+
+### 1. Open-Meteo
+
+Purpose
+
+Weather information
+
+Status
+
+✅ Collected
+
+---
+
+### 2. World Bank Logistics Performance Index (LPI)
+
+Purpose
+
+Logistics infrastructure
+
+Status
+
+✅ Collected
+
+---
+
+### 3. Worldwide Governance Indicators (WGI)
+
+Purpose
+
+Governance and political stability
+
+Status
+
+✅ Collected
+
+---
+
+### 4. FAO GDP Dataset
+
+Purpose
+
+Economic strength
+
+Status
+
+✅ Collected
+
+---
+
+### 5. FAO Consumer Price Index
+
+Purpose
+
+Inflation
+
+Status
+
+✅ Collected
+
+---
+
+### 6. EM-DAT Disaster Database
+
+Purpose
+
+Natural disasters
+
+Status
+
+✅ Collected
+
+---
+
+### 7. Global Fuel Price Database
+
+Purpose
+
+Transportation cost
+
+Status
+
+✅ Collected
+
+---
+
+### 8. Global Public Holidays Dataset
+
+Purpose
+
+Seasonal logistics disruptions
+
+Status
+
+✅ Collected
+
+---
+
+# 8. Dataset Inspection Summary
+
+Every dataset has been inspected individually.
+
+## DataCo
+
+Observations
+
+- Rich operational data
+- Good target variables
+- Minor missing values
+- Suitable as master dataset
+
+Decision
+
+✅ Keep
+
+---
+
+## Open-Meteo
+
+Observations
+
+- Free
+- Global
+- Historical weather
+
+Decision
+
+✅ Keep
+
+---
+
+## LPI
+
+Observations
+
+- Excellent logistics indicators
+- Easy integration
+
+Decision
+
+✅ Keep
+
+---
+
+## WGI
+
+Observations
+
+Contains
+
+- Political Stability
+- Rule of Law
+- Government Effectiveness
+- Regulatory Quality
+- Control of Corruption
+- Voice & Accountability
+
+Decision
+
+✅ Keep
+
+---
+
+## GDP Dataset
+
+Observations
+
+Keep
+
+- GDP
+- Manufacturing
+
+Ignore
+
+- Agriculture-specific indicators
+
+Decision
+
+✅ Keep
+
+---
+
+## Inflation Dataset
+
+Observations
+
+Use
+
+- General CPI
+
+Ignore
+
+- Food CPI
+
+Decision
+
+✅ Keep
+
+---
+
+## EM-DAT
+
+Observations
+
+Provides
+
+- Disaster Type
+- Disaster Magnitude
+- Total Damage
+- Total Affected
+
+Decision
+
+✅ Keep
+
+---
+
+## Fuel Prices
+
+Observations
+
+Use
+
+- Diesel Price
+
+Ignore
+
+- LPG
+- Fuel Oil
+- Exchange Rate Sheets
+
+Decision
+
+✅ Keep
+
+---
+
+## Public Holidays
+
+Observations
+
+Useful for
+
+- Factory closures
+- Seasonal effects
+- Holiday proximity
+
+Decision
+
+✅ Keep
+
+---
+
+# 9. Final Dataset Stack
+
+| Dataset | Purpose |
+|----------|----------|
+| DataCo | Operational Data |
+| Open-Meteo | Weather |
+| LPI | Logistics Infrastructure |
+| WGI | Governance |
+| GDP | Economic Strength |
+| CPI | Inflation |
+| EM-DAT | Disaster Events |
+| Fuel Prices | Transportation Cost |
+| Public Holidays | Seasonal Effects |
+
+---
+
+# 10. Dataset Merge Strategy
+
+The DataCo dataset will act as the master dataset.
+
+Other datasets will be merged using temporal and geographic keys.
+
+| Dataset | Merge Key |
+|----------|-----------|
+| Weather | Country + Date |
+| LPI | Country + Year |
+| WGI | Country + Year |
+| GDP | Country + Year |
+| Inflation | Country + Year |
+| EM-DAT | Country + Year |
+| Fuel Prices | Country + Year + Month |
+| Holidays | Country + Date |
+
+---
+
+# 11. Feature Engineering Plan
+
+We agreed to engineer features instead of directly using raw variables.
+
+Examples include:
+
+## Operational
+
+- Shipping Delay
+- Profit Margin
+- Discount Ratio
+
+## Weather
+
+- Weather Severity
+- Rainfall
+- Wind Speed
+
+## Governance
+
+- Political Stability
+- Governance Score
+
+## Infrastructure
+
+- LPI Score
+- Infrastructure Risk
+
+## Economy
+
+- GDP
+- Manufacturing Strength
+
+## Inflation
+
+- CPI
+
+## Disaster
+
+- Disaster Count
+- Disaster Severity
+
+## Fuel
+
+- Diesel Price
+
+## Holidays
+
+- Holiday Flag
+- Holiday Density
+
+---
+
+# 12. Proposed Machine Learning
+
+Potential prediction targets discussed
+
+Classification
+
+- Late Delivery Risk
+
+Regression
+
+- Shipping Days
+
+Potential models
+
+- Random Forest
+- XGBoost
+- CatBoost
+- LightGBM
+
+Final model selection has not yet been decided.
+
+---
+
+# 13. Explainable AI
+
+The project will use Explainable AI to explain prediction decisions.
+
+Possible techniques discussed
+
+- SHAP
+- LIME (optional)
+
+Purpose
+
+Explain why a shipment has been classified as high or low risk.
+
+---
+
+# 14. Dashboard
+
+The final application is planned to include a dashboard displaying
+
+- Shipment predictions
+- Risk scores
+- Country analysis
+- Explainability
+- Recommendations
+
+Framework has not yet been finalized.
+
+---
+
+# 15. Current Project Status
+
+| Phase | Status |
+|--------|--------|
+| Project Selection | ✅ Completed |
+| Problem Definition | ✅ Completed |
+| Research Gap | ✅ Completed |
+| Module Design | ✅ Completed |
+| Dataset Selection | ✅ Completed |
+| Dataset Collection | ✅ Completed |
+| Dataset Inspection | ✅ Completed |
+| Dataset Evaluation | ✅ Completed |
+| Merge Planning | ✅ Completed |
+| Feature Engineering Planning | ✅ Completed |
+| Data Cleaning | ⏳ Pending |
+| Feature Engineering Implementation | ⏳ Pending |
+| Dataset Integration | ⏳ Pending |
+| EDA | ⏳ Pending |
+| Machine Learning | ⏳ Pending |
+| Explainable AI | ⏳ Pending |
+| Dashboard | ⏳ Pending |
+
+---
+
+# 16. Immediate Next Steps
+
+The next development phase will consist of:
+
+1. Cleaning every dataset individually.
+2. Standardizing country names.
+3. Standardizing dates.
+4. Preparing merge-ready datasets.
+5. Merging datasets into a unified master dataset.
+6. Performing exploratory data analysis.
+7. Beginning feature engineering.
+
+---
+
+# 17. Notes
+
+This document summarizes only the work completed and decisions finalized so far.
+
+It serves as a living project document and will be updated after each major milestone throughout the project's development.
