@@ -1,0 +1,13 @@
+project_name: "supply-chain-intelligence"
+version: "1.0.0"
+
+paths:
+  raw_data: "data/raw/"
+  processed_data: "data/processed/"
+  external_data: "data/external/"
+  model_dir: "models/"
+  results_dir: "results/"
+
+model:
+  target_col: "risk_score"
+  algorithm: "xgboost"
