@@ -1,0 +1,44 @@
+import pandas as pd
+import json
+
+df = pd.read_csv('data/raw/dataco/DataCoSupplyChainDataset.csv', encoding='latin1', low_memory=False)
+unique_countries = df['Order Country'].unique()
+
+manual_mapping = {
+    'Indonesia': 'IDN', 'India': 'IND', 'Australia': 'AUS', 'China': 'CHN', 'Japón': 'JPN', 'Corea del Sur': 'KOR',
+    'Singapur': 'SGP', 'Turquía': 'TUR', 'Mongolia': 'MNG', 'Estados Unidos': 'USA', 'EE. UU.': 'USA', 'Nigeria': 'NGA',
+    'República Democrática del Congo': 'COD', 'Senegal': 'SEN', 'Marruecos': 'MAR', 'Alemania': 'DEU', 'Francia': 'FRA',
+    'Países Bajos': 'NLD', 'Reino Unido': 'GBR', 'Guatemala': 'GTM', 'El Salvador': 'SLV', 'Panamá': 'PAN',
+    'República Dominicana': 'DOM', 'Venezuela': 'VEN', 'Colombia': 'COL', 'Honduras': 'HND', 'Brasil': 'BRA',
+    'México': 'MEX', 'Uruguay': 'URY', 'Argentina': 'ARG', 'Cuba': 'CUB', 'Perú': 'PER', 'Nicaragua': 'NIC',
+    'Ecuador': 'ECU', 'Angola': 'AGO', 'Sudán': 'SDN', 'Somalia': 'SOM', 'Costa de Marfil': 'CIV', 'Egipto': 'EGY',
+    'Italia': 'ITA', 'España': 'ESP', 'Suecia': 'SWE', 'Austria': 'AUT', 'Canada': 'CAN', 'Madagascar': 'MDG',
+    'Argelia': 'DZA', 'Liberia': 'LBR', 'Zambia': 'ZMB', 'Níger': 'NER', 'SudAfrica': 'ZAF', 'Mozambique': 'MOZ',
+    'Tanzania': 'TZA', 'Ruanda': 'RWA', 'Israel': 'ISR', 'Nueva Zelanda': 'NZL', 'Bangladés': 'BGD', 'Tailandia': 'THA',
+    'Irak': 'IRQ', 'Arabia Saudí': 'SAU', 'Filipinas': 'PHL', 'Kazajistán': 'KAZ', 'Irán': 'IRN', 'Myanmar (Birmania)': 'MMR',
+    'Uzbekistán': 'UZB', 'Benín': 'BEN', 'Camerún': 'CMR', 'Kenia': 'KEN', 'Togo': 'TGO', 'Ucrania': 'UKR', 'Polonia': 'POL',
+    'Portugal': 'PRT', 'Rumania': 'ROU', 'Trinidad y Tobago': 'TTO', 'Afganistán': 'AFG', 'Pakistán': 'PAK', 'Vietnam': 'VNM',
+    'Malasia': 'MYS', 'Finlandia': 'FIN', 'Rusia': 'RUS', 'Irlanda': 'IRL', 'Noruega': 'NOR', 'Eslovaquia': 'SVK',
+    'Bélgica': 'BEL', 'Bolivia': 'BOL', 'Chile': 'CHL', 'Jamaica': 'JAM', 'Yemen': 'YEM', 'Ghana': 'GHA', 'Guinea': 'GIN',
+    'Etiopía': 'ETH', 'Bulgaria': 'BGR', 'Kirguistán': 'KGZ', 'Georgia': 'GEO', 'Nepal': 'NPL', 'Emiratos Árabes Unidos': 'ARE',
+    'Camboya': 'KHM', 'Uganda': 'UGA', 'Lesoto': 'LSO', 'Lituania': 'LTU', 'Suiza': 'CHE', 'Hungría': 'HUN', 'Dinamarca': 'DNK',
+    'Haití': 'HTI', 'Bielorrusia': 'BLR', 'Croacia': 'HRV', 'Laos': 'LAO', 'Baréin': 'BHR', 'Macedonia': 'MKD',
+    'República Checa': 'CZE', 'Sri Lanka': 'LKA', 'Zimbabue': 'ZWE', 'Eritrea': 'ERI', 'Burkina Faso': 'BFA', 'Costa Rica': 'CRI',
+    'Libia': 'LBY', 'Barbados': 'BRB', 'Tayikistán': 'TJK', 'Siria': 'SYR', 'Guadalupe': 'GLP', 'Papúa Nueva Guinea': 'PNG',
+    'Azerbaiyán': 'AZE', 'Turkmenistán': 'TKM', 'Paraguay': 'PRY', 'Jordania': 'JOR', 'Hong Kong': 'HKG', 'Martinica': 'MTQ',
+    'Moldavia': 'MDA', 'Qatar': 'QAT', 'Mali': 'MLI', 'Albania': 'ALB', 'República del Congo': 'COG', 'Bosnia y Herzegovina': 'BIH',
+    'Omán': 'OMN', 'Túnez': 'TUN', 'Sierra Leona': 'SLE', 'Yibuti': 'DJI', 'Burundi': 'BDI', 'Montenegro': 'MNE', 'Gabón': 'GAB',
+    'Sudán del Sur': 'SSD', 'Luxemburgo': 'LUX', 'Namibia': 'NAM', 'Mauritania': 'MRT', 'Grecia': 'GRC', 'Suazilandia': 'SWZ',
+    'Guyana': 'GUY', 'Guayana Francesa': 'GUF', 'República Centroafricana': 'CAF', 'Taiwán': 'TWN', 'Estonia': 'EST',
+    'Líbano': 'LBN', 'Chipre': 'CYP', 'Guinea-Bissau': 'GNB', 'Surinam': 'SUR', 'Belice': 'BLZ', 'Eslovenia': 'SVN',
+    'República de Gambia': 'GMB', 'Botsuana': 'BWA', 'Armenia': 'ARM', 'Guinea Ecuatorial': 'GNQ', 'Kuwait': 'KWT',
+    'Bután': 'BTN', 'Chad': 'TCD', 'Serbia': 'SRB', 'Sáhara Occidental': 'ESH'
+}
+
+final_mapping = {}
+for c in unique_countries:
+    final_mapping[c] = manual_mapping.get(c, "MISSING")
+
+with open('src/preprocessing/country_mapping.py', 'w', encoding='utf-8') as f:
+    f.write('DATACO_TO_ISO3 = \\\n')
+    f.write(json.dumps(final_mapping, ensure_ascii=False, indent=4))

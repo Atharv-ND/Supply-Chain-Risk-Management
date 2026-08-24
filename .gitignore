@@ -36,7 +36,6 @@ env.bak/
 venv.bak/
 
 # Data and models
-data/
 models/
 *.csv
 *.xlsx
