@@ -189,18 +189,10 @@ The front-end is implemented in `app.py` with modular backend analytics in `src/
 ```
 supply-chain-intelligence/
 ├── app.py                                   # Streamlit Application Entrypoint
-├── config/
-│   └── config.yaml                          # Configuration parameters
-├── dashboard/
-│   └── app.py                               # Initial prototype UI
 ├── data/
 │   ├── external/                            # External raw data (Open-Meteo JSONs, etc.)
 │   ├── processed/                           # Harmonized intermediate CSVs
 │   └── processed.zip                        # Bundled preprocessed data archive
-├── generate_mapping.py                      # Country mapping generation script
-├── main.py                                  # Pipeline execution entrypoint
-├── models/                                  # Trained model checkpoint directory
-├── Project.txt                              # Original planning notes
 ├── PROJECT_DETAILS.md                       # Comprehensive project documentation (this file)
 ├── README.md                                # GitHub repository presentation README
 ├── requirements.txt                         # Python environment requirements

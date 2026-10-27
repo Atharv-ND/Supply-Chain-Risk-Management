@@ -91,21 +91,19 @@ supply-chain-intelligence/
 ├── app.py                         # Main Streamlit web application
 ├── PROJECT_DETAILS.md             # In-depth technical documentation & architecture
 ├── requirements.txt               # Python package dependencies
-├── config/                        # Pipeline configuration
 ├── data/
 │   ├── external/                  # Raw external data (weather, country codes)
 │   ├── processed/                 # Cleaned datasets
 │   └── processed.zip              # Packaged processed data archive
 ├── results.zip                    # Packaged evaluation reports, plots & matrices
-├── src/
-│   ├── dashboard/                 # Streamlit UI modules & Plotly visualizations
-│   ├── eda/                       # Exploratory Data Analysis & VIF scripts
-│   ├── features/                  # Feature engineering pipelines
-│   ├── integration/               # Multi-source dataset merge engine
-│   ├── ml/                        # Classification, regression, and model selection audits
-│   ├── preprocessing/             # Raw dataset cleaners & country name resolvers
-│   └── validation/                # Target and temporal leakage verification
-└── main.py                        # Pipeline runner
+└── src/
+    ├── dashboard/                 # Streamlit UI modules & Plotly visualizations
+    ├── eda/                       # Exploratory Data Analysis & VIF scripts
+    ├── features/                  # Feature engineering pipelines
+    ├── integration/               # Multi-source dataset merge engine
+    ├── ml/                        # Classification, regression, and model selection audits
+    ├── preprocessing/             # Raw dataset cleaners & country name resolvers
+    └── validation/                # Target and temporal leakage verification
 ```
 
 ---
